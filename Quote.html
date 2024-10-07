@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        #quote-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        #quote {
+            font-size: 24px;
+            color: #333333;
+        }
+
+        #author {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #555555;
+        }
+
+        #new-quote-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #new-quote-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="quote-box">
+        <p id="quote">"Click the button for a random quote!"</p>
+        <p id="author">- Unknown</p>
+        <button id="new-quote-btn">New Quote</button>
+    </div>
+
+    <script>
+        const quotes = [
+            { quote: "The best way to predict the future is to invent it.", author: "Alan Kay" },
+            { quote: "Life is 10% what happens to us and 90% how we react to it.", author: "Charles R. Swindoll" },
+            { quote: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs" },
+            { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { quote: "If you can dream it, you can achieve it.", author: "Zig Ziglar" }
+        ];
+
+        const quoteText = document.getElementById('quote');
+        const authorText = document.getElementById('author');
+        const newQuoteBtn = document.getElementById('new-quote-btn');
+
+        // Function to generate a random quote
+        function generateRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            quoteText.textContent = `"${randomQuote.quote}"`;
+            authorText.textContent = `- ${randomQuote.author}`;
+        }
+
+        // Event listener for button click
+        newQuoteBtn.addEventListener('click', generateRandomQuote);
+    </script>
+
+</body>
+</html>
